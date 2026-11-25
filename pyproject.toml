@@ -1,7 +1,7 @@
 [project]
 name = "mcp-agent-tools"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP tool-augmented ops assistant: FastMCP-style server, stdio client, agent loop, Streamlit console"
 readme = "README.md"
 authors = [
     { name = "Laurie Roy", email = "laurieroy.dev@gmail.com" }
@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "aiosqlite>=0.22.1",
+    "anthropic>=0.39.0",
     "fastapi>=0.165.0",
     "httpx>=0.28.1",
     "mcp[cli]>=2.3.0",
@@ -21,9 +22,8 @@ dependencies = [
     "uvicorn>=0.54.0",
 ]
 
-[project.scripts]
-mcp-agent-tools = "mcp_agent_tools:main"
+[tool.uv]
+package = false
 
-[build-system]
-requires = ["uv_build>=0.13.1,<0.14.0"]
-build-backend = "uv_build"
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
